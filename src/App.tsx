@@ -1,15 +1,14 @@
 import "./styles.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ProductList from "./pages/ProductList";
 import Home from "./pages/Home";
 
 const App: React.FC = () => (
-  <Router>
-    <Routes>
-      <Route path="/home" element={<Home />} />
-      <Route path="/product-list" element={<ProductList />} />
-    </Routes>
-  </Router>
+  <Routes>
+    <Route path="/" element={<Navigate to="/home" replace />} />
+    <Route path="/home" element={<Home />} />
+    <Route path="/product-list" element={<ProductList />} />
+  </Routes>
 );
 
 export default App;
